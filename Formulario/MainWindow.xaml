@@ -5,8 +5,87 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Formulario"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Formulario" MinHeight="550" MinWidth="850" Height="550" Width="850" Icon="assets/48.ico">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="105"></RowDefinition>
+            <RowDefinition Height="160"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold" FontSize="40" VerticalAlignment="Bottom">Formulario</TextBlock>
+      
+
+        <Border Padding="10" Background="LightBlue" Margin="5,7,10,0" CornerRadius="5" BorderThickness="3" BorderBrush="Black" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="25"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center">Nombre</TextBlock>
+                <TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center">Edad</TextBlock>
+                <TextBlock Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center">Dirección</TextBlock>
+                <TextBox Margin="3" Grid.Row="0" Grid.Column="1"></TextBox>
+                <TextBox Margin="3" Grid.Row="1" Grid.Column="1"></TextBox>
+                <TextBox Margin="3" Grid.Row="2" Grid.Column="1"></TextBox>
+
+                <Image Width="20" ToolTip="Máximo 100 caracteres" Grid.Row="0" Grid.Column="2" Source="assets/info.png"></Image>
+                <Image Width="20" ToolTip="Número entre 0 y 100" Grid.Row="1" Grid.Column="2" Source="assets/info.png"></Image>
+                <Image Width="20" ToolTip="Incluir el código postal" Grid.Row="2" Grid.Column="2" Source="assets/info.png"></Image>
+            </Grid>
+        </Border>
+
+        <Border Margin="5,20,10,5" Padding="10" Background="LightSalmon" CornerRadius="5" BorderThickness="3" BorderBrush="Black" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+            <WrapPanel>
+                <GroupBox Margin="0,0,20,0"  Padding="10" BorderBrush="Black" BorderThickness="0.5" Width="200" Height="105" Header="Aficiones">
+                    <StackPanel>
+                        <CheckBox>Hacer deporte</CheckBox>
+                        <CheckBox>Viajar</CheckBox>
+                        <CheckBox>Ver series</CheckBox>
+                        <CheckBox>Leer comics</CheckBox>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Padding="10" BorderBrush="Black" BorderThickness="0.5" Width="200" Height="105" Header="Estado civil">
+                    <StackPanel>
+                        <RadioButton GroupName="EstadoCivil">Soltero</RadioButton>
+                        <RadioButton GroupName="EstadoCivil">Casado</RadioButton>
+                        <RadioButton GroupName="EstadoCivil">Divorciado</RadioButton>
+                        <RadioButton GroupName="EstadoCivil">Viudo</RadioButton>
+                    </StackPanel>
+                </GroupBox>
+                
+            </WrapPanel>
+            
+
+
+        </Border>
+
+        <Image Stretch="Fill" Margin="5,5,20,5" Source="assets/foto.jpg" Grid.Column="2" Grid.Row="1" Grid.RowSpan="3"></Image>
+
+        <DockPanel Grid.Row="4" Grid.ColumnSpan="3">
+            <TextBlock Margin="3" DockPanel.Dock="Left" FontSize="20" FontStyle="Italic">Juandi Cabrera</TextBlock>
+            <Button Margin="4" Width="100" DockPanel.Dock="Right">Cancelar</Button>
+            <Button Margin="4" Width="100" DockPanel.Dock="Right">Aceptar</Button>
+            <TextBlock></TextBlock>
+        </DockPanel>
     </Grid>
 </Window>
