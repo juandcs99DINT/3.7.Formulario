@@ -6,6 +6,69 @@
         xmlns:local="clr-namespace:Formulario"
         mc:Ignorable="d"
         Title="Formulario" MinHeight="550" MinWidth="850" Height="550" Width="850" Icon="assets/48.ico">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}" x:Key="TextBlockTitulo">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+            <Setter Property="FontSize" Value="40"></Setter>
+        </Style>
+        <Style TargetType="{x:Type Border}" x:Key="BorderGenericoCajas">
+            <Setter Property="BorderThickness" Value="3"></Setter>
+            <Setter Property="CornerRadius" Value="5"></Setter>
+            <Setter Property="BorderBrush" Value="Black"></Setter>
+            <Setter Property="Padding" Value="10"></Setter>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect></DropShadowEffect>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type Border}" x:Key="BorderCajaSuperior" BasedOn="{StaticResource BorderGenericoCajas}">
+            <Setter Property="Background" Value="LightBlue"></Setter>
+            <Setter Property="Margin" Value="5,7,10,0"></Setter>
+        </Style>
+        <Style TargetType="{x:Type Border}" x:Key="BorderCajaInferior" BasedOn="{StaticResource BorderGenericoCajas}">
+            <Setter Property="Background" Value="LightSalmon"></Setter>
+            <Setter Property="Margin" Value="5,20,10,5"></Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}" x:Key="TextBlockFormulario">
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Margin" Value="3"></Setter>
+        </Style>
+        <Style TargetType="{x:Type Image}" x:Key="ImagenToolTip">
+            <Setter Property="Width" Value="20"></Setter>
+            <Setter Property="Source" Value="assets/info.png"></Setter>
+        </Style>
+        <Style TargetType="{x:Type GroupBox}">
+            <Setter Property="Padding" Value="10"></Setter>
+            <Setter Property="BorderBrush" Value="Black"></Setter>
+            <Setter Property="BorderThickness" Value="0.5"></Setter>
+            <Setter Property="Width" Value="200"></Setter>
+        </Style>
+        <Style TargetType="{x:Type RadioButton}">
+            <Setter Property="GroupName" Value="EstadoCivil"></Setter>
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="100"></Setter>
+            <Setter Property="Margin" Value="4"></Setter>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}" x:Key="TextBlockNombre">
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="FontStyle" Value="Italic"></Setter>
+            <Setter Property="Margin" Value="3"></Setter>
+        </Style>
+        <Style TargetType="{x:Type Image}" x:Key="ImageDerecha">
+            <Setter Property="Stretch" Value="Fill"></Setter>
+            <Setter Property="Margin" Value="5,5,20,5"></Setter>
+            <Setter Property="Source" Value="assets/foto.jpg"></Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"></RowDefinition>
@@ -20,12 +83,9 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold" FontSize="40" VerticalAlignment="Bottom">Formulario</TextBlock>
-      
-        <Border Padding="10" Background="LightBlue" Margin="5,7,10,0" CornerRadius="5" BorderThickness="3" BorderBrush="Black" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
-            <Border.Effect>
-                <DropShadowEffect/>
-            </Border.Effect>
+        <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBlockTitulo}">Formulario</TextBlock>
+
+        <Border Style="{StaticResource BorderCajaSuperior}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="60"></ColumnDefinition>
@@ -37,26 +97,23 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center">Nombre</TextBlock>
-                <TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center">Edad</TextBlock>
-                <TextBlock Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center">Dirección</TextBlock>
-                <TextBox Margin="3" Grid.Row="0" Grid.Column="1"></TextBox>
-                <TextBox Margin="3" Grid.Row="1" Grid.Column="1"></TextBox>
-                <TextBox Margin="3" Grid.Row="2" Grid.Column="1"></TextBox>
 
-                <Image Width="20" ToolTip="Máximo 100 caracteres" Grid.Row="0" Grid.Column="2" Source="assets/info.png"></Image>
-                <Image Width="20" ToolTip="Número entre 0 y 100" Grid.Row="1" Grid.Column="2" Source="assets/info.png"></Image>
-                <Image Width="20" ToolTip="Incluir el código postal" Grid.Row="2" Grid.Column="2" Source="assets/info.png"></Image>
+                <TextBlock Style="{StaticResource TextBlockFormulario}" Grid.Row="0">Nombre</TextBlock>
+                <TextBlock Style="{StaticResource TextBlockFormulario}" Grid.Row="1">Edad</TextBlock>
+                <TextBlock Style="{StaticResource TextBlockFormulario}" Grid.Row="2">Dirección</TextBlock>
+                <TextBox Grid.Row="0" Grid.Column="1"></TextBox>
+                <TextBox Grid.Row="1" Grid.Column="1"></TextBox>
+                <TextBox Grid.Row="2" Grid.Column="1"></TextBox>
+
+                <Image Style="{StaticResource ImagenToolTip}" ToolTip="Máximo 100 caracteres" Grid.Row="0" Grid.Column="2"></Image>
+                <Image Style="{StaticResource ImagenToolTip}" ToolTip="Número entre 0 y 100" Grid.Row="1" Grid.Column="2"></Image>
+                <Image Style="{StaticResource ImagenToolTip}" ToolTip="Incluir el código postal" Grid.Row="2" Grid.Column="2"></Image>
             </Grid>
         </Border>
 
-        <Border Margin="5,20,10,5" Padding="10" Background="LightSalmon" CornerRadius="5" BorderThickness="3" BorderBrush="Black" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
-            <Border.Effect>
-                <DropShadowEffect/>
-            </Border.Effect>
-            
+        <Border Style="{StaticResource BorderCajaInferior}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
             <WrapPanel>
-                <GroupBox Margin="0,0,20,0"  Padding="10" BorderBrush="Black" BorderThickness="0.5" Width="200" Height="105" Header="Aficiones">
+                <GroupBox Margin="0,0,20,0" Header="Aficiones">
                     <StackPanel>
                         <CheckBox>Hacer deporte</CheckBox>
                         <CheckBox>Viajar</CheckBox>
@@ -64,25 +121,23 @@
                         <CheckBox>Leer comics</CheckBox>
                     </StackPanel>
                 </GroupBox>
-                <GroupBox Padding="10" BorderBrush="Black" BorderThickness="0.5" Width="200" Height="105" Header="Estado civil">
+                <GroupBox Header="Estado civil">
                     <StackPanel>
-                        <RadioButton IsChecked="True" GroupName="EstadoCivil">Soltero</RadioButton>
-                        <RadioButton GroupName="EstadoCivil">Casado</RadioButton>
-                        <RadioButton GroupName="EstadoCivil">Divorciado</RadioButton>
-                        <RadioButton GroupName="EstadoCivil">Viudo</RadioButton>
+                        <RadioButton IsChecked="True">Soltero</RadioButton>
+                        <RadioButton>Casado</RadioButton>
+                        <RadioButton>Divorciado</RadioButton>
+                        <RadioButton>Viudo</RadioButton>
                     </StackPanel>
                 </GroupBox>
             </WrapPanel>
-            
         </Border>
 
-        <Image Stretch="Fill" Margin="5,5,20,5" Source="assets/foto.jpg" Grid.Column="2" Grid.Row="1" Grid.RowSpan="3"></Image>
+        <Image Style="{StaticResource ImageDerecha}" Grid.Column="2" Grid.Row="1" Grid.RowSpan="3"></Image>
 
-        <DockPanel Grid.Row="4" Grid.ColumnSpan="3">
-            <TextBlock Margin="3" DockPanel.Dock="Left" FontSize="20" FontStyle="Italic">Juandi Cabrera</TextBlock>
-            <Button Margin="4" Width="100" DockPanel.Dock="Right">Cancelar</Button>
-            <Button Margin="4" Width="100" DockPanel.Dock="Right">Aceptar</Button>
-            <TextBlock></TextBlock>
+        <DockPanel Grid.Row="4" Grid.ColumnSpan="3" LastChildFill="False">
+            <TextBlock Style="{StaticResource TextBlockNombre}" DockPanel.Dock="Left">Juandi Cabrera</TextBlock>
+            <Button DockPanel.Dock="Right">Cancelar</Button>
+            <Button DockPanel.Dock="Right">Aceptar</Button>
         </DockPanel>
     </Grid>
 </Window>
