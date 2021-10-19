@@ -7,68 +7,6 @@
         mc:Ignorable="d"
         Title="Formulario" MinHeight="550" MinWidth="850" Height="550" Width="850" Icon="assets/48.ico">
 
-    <Window.Resources>
-        <Style TargetType="{x:Type TextBlock}" x:Key="TextBlockTitulo">
-            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-            <Setter Property="FontWeight" Value="Bold"></Setter>
-            <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
-            <Setter Property="FontSize" Value="40"></Setter>
-        </Style>
-        <Style TargetType="{x:Type Border}" x:Key="BorderGenericoCajas">
-            <Setter Property="BorderThickness" Value="3"></Setter>
-            <Setter Property="CornerRadius" Value="5"></Setter>
-            <Setter Property="BorderBrush" Value="Black"></Setter>
-            <Setter Property="Padding" Value="10"></Setter>
-            <Setter Property="Effect">
-                <Setter.Value>
-                    <DropShadowEffect></DropShadowEffect>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Style TargetType="{x:Type Border}" x:Key="BorderCajaSuperior" BasedOn="{StaticResource BorderGenericoCajas}">
-            <Setter Property="Background" Value="LightBlue"></Setter>
-            <Setter Property="Margin" Value="5,7,10,0"></Setter>
-        </Style>
-        <Style TargetType="{x:Type Border}" x:Key="BorderCajaInferior" BasedOn="{StaticResource BorderGenericoCajas}">
-            <Setter Property="Background" Value="LightSalmon"></Setter>
-            <Setter Property="Margin" Value="5,20,10,5"></Setter>
-        </Style>
-        <Style TargetType="{x:Type TextBlock}" x:Key="TextBlockFormulario">
-            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
-            <Setter Property="VerticalAlignment" Value="Center"></Setter>
-        </Style>
-        <Style TargetType="{x:Type TextBox}">
-            <Setter Property="Margin" Value="3"></Setter>
-        </Style>
-        <Style TargetType="{x:Type Image}" x:Key="ImagenToolTip">
-            <Setter Property="Width" Value="20"></Setter>
-            <Setter Property="Source" Value="assets/info.png"></Setter>
-        </Style>
-        <Style TargetType="{x:Type GroupBox}">
-            <Setter Property="Padding" Value="10"></Setter>
-            <Setter Property="BorderBrush" Value="Black"></Setter>
-            <Setter Property="BorderThickness" Value="0.5"></Setter>
-            <Setter Property="Width" Value="200"></Setter>
-        </Style>
-        <Style TargetType="{x:Type RadioButton}">
-            <Setter Property="GroupName" Value="EstadoCivil"></Setter>
-        </Style>
-        <Style TargetType="{x:Type Button}">
-            <Setter Property="Width" Value="100"></Setter>
-            <Setter Property="Margin" Value="4"></Setter>
-        </Style>
-        <Style TargetType="{x:Type TextBlock}" x:Key="TextBlockNombre">
-            <Setter Property="FontSize" Value="20"></Setter>
-            <Setter Property="FontStyle" Value="Italic"></Setter>
-            <Setter Property="Margin" Value="3"></Setter>
-        </Style>
-        <Style TargetType="{x:Type Image}" x:Key="ImageDerecha">
-            <Setter Property="Stretch" Value="Fill"></Setter>
-            <Setter Property="Margin" Value="5,5,20,5"></Setter>
-            <Setter Property="Source" Value="assets/foto.jpg"></Setter>
-        </Style>
-    </Window.Resources>
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"></RowDefinition>
